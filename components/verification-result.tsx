@@ -157,7 +157,7 @@ export function VerificationResult({ result, onReset }: VerificationResultProps)
                               month: "long",
                               day: "numeric",
                             })
-                          : ""}
+                          : "0000-00-00"}
                       </p>
                     </div>
                   </div>

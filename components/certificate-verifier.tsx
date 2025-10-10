@@ -24,18 +24,18 @@ export function CertificateVerifier() {
   const handleVerify = async () => {
     const trimmedCode = certificateId.trim().toUpperCase()
     if (!trimmedCode) return
-  
+
     setIsVerifying(true)
-  
+
     const { data, error } = await supabase
       .from("certs")
       .select("*")
       .eq("code", trimmedCode)
       .maybeSingle()
-  
+
     console.log("Checking certificate:", trimmedCode)
     console.log("Supabase response:", { error, data })
-  
+
     if (error) {
       setVerificationResult({
         status: "invalid",
@@ -48,7 +48,7 @@ export function CertificateVerifier() {
       })
     } else {
       const fullName = `${data.first_name ?? ""} ${data.last_name ?? ""}`.trim()
-  
+
       setVerificationResult({
         status: "valid",
         certificateId: data.code,
@@ -58,7 +58,7 @@ export function CertificateVerifier() {
         issuer: data.certificate || "N/A",
       })
     }
-  
+
     setIsVerifying(false)
   }
 
@@ -68,7 +68,7 @@ export function CertificateVerifier() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-8">
       <Card className="border-0 shadow-sm">
         <CardHeader className="space-y-2 p-6">
           <CardTitle className="text-3xl font-semibold text-slate-900">
@@ -119,6 +119,34 @@ export function CertificateVerifier() {
       {verificationResult && (
         <VerificationResult result={verificationResult} onReset={handleReset} />
       )}
+
+      {/* 📝 Footer Note Section */}
+      <div className="mt-6 text-sm text-slate-700 space-y-4">
+        <p>
+          <strong>Note:</strong> The Certificate Verification System is intended exclusively for use
+          by the certificate owner and authorized third parties who have been granted permission to
+          verify the validity and authenticity of the issued certificate.
+        </p>
+        <p>
+          All information accessed through this system is handled in compliance with the{' '}
+          <strong>Data Privacy Act</strong> to ensure the confidentiality, integrity, and security
+          of personal data.
+        </p>
+        <p>
+          Certificates with no expiry date will appear as <code>0000-00-00</code> for the validity
+          date.
+        </p>
+        <p>
+          If you are unable to verify the certificate details, please contact us at{' '}
+          <a
+            href="mailto:info@petrosphere.com.ph"
+            className="text-blue-600 hover:underline"
+          >
+            info@petrosphere.com.ph
+          </a>{' '}
+          for further assistance.
+        </p>
+      </div>
     </div>
   )
 }
