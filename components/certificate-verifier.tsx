@@ -86,7 +86,7 @@ export function CertificateVerifier() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Input
                 id="certificate-id"
-                placeholder="e.g., PSI-5S-0002"
+                placeholder="e.g., PSI-XXXX-XXXX"
                 value={certificateId}
                 onChange={(e) => setCertificateId(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleVerify()}
