@@ -112,7 +112,7 @@ export function VerificationResult({ result, onReset }: VerificationResultProps)
                 <Building2 className="w-5 h-5 text-slate-600 shrink-0 mt-0.5" />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-slate-600 uppercase tracking-wide">
-                    Issued By
+                    Course Title
                   </p>
                   <p className="text-sm font-medium text-slate-900 mt-1">
                     {result.issuer}
