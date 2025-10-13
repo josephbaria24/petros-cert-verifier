@@ -72,6 +72,7 @@ export function CertificateVerifier() {
       <Card className="border-0 shadow-sm">
         <CardHeader className="space-y-2 p-6">
           <CardTitle className="text-3xl font-semibold text-slate-900">
+            
             Verify Your Certificate
           </CardTitle>
           <CardDescription className="text-slate-600">

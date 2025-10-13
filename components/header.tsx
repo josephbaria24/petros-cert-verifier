@@ -8,28 +8,21 @@ export function Header() {
   return (
     <header className="bg-[#1b1b63] shadow-md sticky top-0 z-50">
 
-      <div className="container mx-auto px-4 py-3 md:py-0 flex flex-col md:flex-row items-center justify-between sm:py-3">
+      <div className="container mx-auto px-6 pl-6 py-3 md:py-0 flex flex-col md:flex-row items-center justify-between sm:py-3">
         {/* Left Section: Logo and Title */}
-        <div className="flex items-center gap-4">
-        <div className="flex items-center justify-center w-20 h-20 relative overflow-visible">
+        <div className="flex items-center gap-8 space-x-10">
+        <div className="flex items-center justify-center w-20 h-20 relative overflow-visible lg:pl-10 sm:pl-8 md:pl-6">
           <Image
-            src="/logo2.png"
+            src="/trans-logo.png"
             alt="Petrosphere Logo"
             width={90}
             height={90}
-            className="object-contain scale-230" // 👈 makes it 25% larger
+            className="object-contain scale-500 sm:scale-500 md:scale-500" // 👈 makes it 25% larger
             priority
           />
         </div>
 
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-white">
-              Certificate Verifier
-            </h1>
-            <p className="text-sm md:text-base text-yellow-400">
-              by Petrosphere Incorporated
-            </p>
-          </div>
+     
         </div>
 
         {/* Right Section: Navigation Links */}
