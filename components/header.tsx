@@ -1,22 +1,27 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
+import { Home, BookOpen, Phone } from "lucide-react"
 
 export function Header() {
   return (
-    <header className="bg-[#1b1b63]"> {/* Deep blue background */}
-      <div className="container mx-auto px-4 py-4 md:py-6">
+    <header className="bg-[#1b1b63] shadow-md sticky top-0 z-50">
+
+      <div className="container mx-auto px-4 py-3 md:py-0 flex flex-col md:flex-row items-center justify-between sm:py-3">
+        {/* Left Section: Logo and Title */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-20 h-20 rounded-lg">
-            <Image
-              src="/logo.png"
-              alt="Petrosphere Logo"
-              width={80}
-              height={80}
-              className="w-16 h-16 object-contain"
-              priority
-            />
-          </div>
+        <div className="flex items-center justify-center w-20 h-20 relative overflow-visible">
+          <Image
+            src="/logo2.png"
+            alt="Petrosphere Logo"
+            width={90}
+            height={90}
+            className="object-contain scale-230" // 👈 makes it 25% larger
+            priority
+          />
+        </div>
+
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-white">
               Certificate Verifier
@@ -26,6 +31,33 @@ export function Header() {
             </p>
           </div>
         </div>
+
+        {/* Right Section: Navigation Links */}
+        <nav className="flex items-center gap-6 mt-4 md:mt-0">
+          <Link
+            href="https://petrosphere.com.ph/"
+            className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors duration-200"
+          >
+            <Home className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-sm md:text-base font-medium">Home</span>
+          </Link>
+
+          <Link
+            href="https://petrosphere.com.ph/training/"
+            className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors duration-200"
+          >
+            <BookOpen className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-sm md:text-base font-medium">Courses</span>
+          </Link>
+
+          <Link
+            href="https://petrosphere.com.ph/about/"
+            className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors duration-200"
+          >
+            <Phone className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-sm md:text-base font-medium">Contact Us</span>
+          </Link>
+        </nav>
       </div>
 
       {/* Yellow stripe at the bottom of the header */}
